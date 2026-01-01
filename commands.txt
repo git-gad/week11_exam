@@ -14,7 +14,7 @@ git remote add origin https://github.com/git-gad/week11_exam.git
 
 git push -u origin main
 
-$ git checkout -b dev
+git checkout -b dev
 
 git clone https://github.com/yosefanaliza/streamlit_minikube_app
 
@@ -33,4 +33,10 @@ docker delete image gaddock/week11_exam:streamlit-app
 docker pull gaddock/week11_exam:streamlit-app
 
 docker images
+
+git add .
+
+git commit -m 'add dockerfile'
+
+git push --set-upstream origin dev
 
