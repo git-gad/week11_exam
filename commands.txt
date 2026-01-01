@@ -18,10 +18,6 @@ git checkout -b dev
 
 git clone https://github.com/yosefanaliza/streamlit_minikube_app
 
-minikube start
-
-kubectl config get-contexts
-
 docker build -t streamlit-app:latest .
 
 docker run -d -p 8501:8501 streamlit-app:latest
@@ -40,3 +36,24 @@ git commit -m 'add dockerfile'
 
 git push --set-upstream origin dev
 
+git checkout main
+
+git merge dev
+
+git push
+
+git checkout -b k8s
+
+minikube start
+
+kubectl config get-contexts
+
+kubectl apply -f pod.yaml
+
+kubectl apply -f streamlit-service.yaml
+
+kubectl get pods
+
+kubectl get svc
+
+kubectl port-forward streamlit-pod 8501:8501
